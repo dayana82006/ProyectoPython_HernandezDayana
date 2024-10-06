@@ -2,6 +2,7 @@ import os
 import sys
 import modules as mdls
 import random
+#from tabulate import tabulate
 
 contador={
     'PuntosPc':0,
@@ -26,6 +27,7 @@ def jugarPc():
             if opcUs=='piedra' and opcionPc=='tijera':
                 print('Has ganado')
                 contador['rondasGU']+=1
+                #print(tabulate(contador, headers="keys", tablefmt="grid"))
             elif opcUs=='papel' and opcionPc=='piedra':
                 print('Has ganado')
                 contador['rondasGU']+=1
@@ -52,8 +54,9 @@ def jugarPc():
         else:
             print('La partida ha finalizado')
             if contador['rondasGU'] > contador['rondasGM']:
-             print('`✵•.¸,✵°✵.｡.✰ FELICIDADES GANASTE !! ✰.｡.✵°✵,¸.•✵´')
+             print(f'`✵•.¸,✵°✵.｡.✰ FELICIDADES {users.get('name')} GANASTE !! ✰.｡.✵°✵,¸.•✵´')
+             mdls.pausar_pantalla()
             else:
-             print(' HAS PERDIDO ٩꒰´·⌢•｀꒱۶⁼³₌₃')
+             print('LO SIENTO HAS PERDIDO ٩꒰´·⌢•｀꒱۶⁼³₌₃')
             isActive=False
        

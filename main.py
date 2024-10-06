@@ -15,8 +15,5 @@ if __name__=='__main__':
                     modulo.jugarPc()
                     
                 
-                
-                
-                
         except:
             input('Elija una opcion correcta ')
