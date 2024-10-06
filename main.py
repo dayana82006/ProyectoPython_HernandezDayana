@@ -7,7 +7,7 @@ if __name__=='__main__':
     isActive=True
     
     while isActive:
-        try:
+        #try:
             print(modulo.menu)
             opcion=int(input('Escriba aqui la opcion: '))
             match opcion:
@@ -15,5 +15,5 @@ if __name__=='__main__':
                     modulo.jugarPc()
                     
                 
-        except:
-            input('Elija una opcion correcta ')
+        #except:
+           # input('Elija una opcion correcta ')
