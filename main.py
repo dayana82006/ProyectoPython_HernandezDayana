@@ -1,9 +1,12 @@
 import os
 import sys
 import modules as modulo
-
+marcador={}
+modulo.checkFile(marcador)
+marcador=modulo.readFile()
 if __name__=='__main__':
-    
+
+
     isActive=True
     
     while isActive:
@@ -12,8 +15,14 @@ if __name__=='__main__':
             opcion=int(input('Escriba aqui la opcion: '))
             match opcion:
                 case 1:
-                    modulo.jugarPc()
-                    
+                    modulo.jugarPc(marcador)
+                    modulo.addData(marcador)
+                case 2:
+                    modulo.jugarJug()
+                    modulo.addData()
+                case 3:
+                    print(modulo.reglas)
+                    input('Enter para volver al menú.....')
                 
         #except:
            # input('Elija una opcion correcta ')
