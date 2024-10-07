@@ -1,1 +1,10 @@
-{}
+{
+    "nombreJ": "sss",
+    "contador": {
+        "puntosJ1": 0,
+        "puntosJ2": 0,
+        "rondasJ1": 0,
+        "rondasJ2": 0,
+        "resultados": 0
+    }
+}

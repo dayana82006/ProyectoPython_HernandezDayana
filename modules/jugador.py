@@ -11,15 +11,21 @@ def jugarJug(marcador):
         'resultados':0
     }
 
-    isActive=True
+    
+    nombreC=str(input('Ingrese su nombre completo'))
     user=str(input('🃟 Registre su nombre de usuario1: '))
     user2=str(input('🃟 Registre su nombre de usuario2: '))
-    users={
-            'name':user,
-            'name2':user2
+    users={  
+            'nickname':user,
+            'nickname2':user2
             }
     
-    
+    if users.get("nickname") == users.get("nickname2"):
+            print('Este usuario no esta disponible')
+            isActive=False
+            input('Presiones enter para volver al menu')
+    else:
+        isActive=True
     while isActive:
         opciones=['piedra', 'papel', 'tijera']
         if contador['rondasJ1']<3 and contador['rondasJ2']<3:
@@ -62,15 +68,15 @@ def jugarJug(marcador):
         else:
             print('La partida ha finalizado')
             if contador['rondasJ1'] > contador['rondasJ2']:
-             print(f'✵°✵.｡.✰ FELICIDADES {users["name"]} GANASTE !! ✰.｡.✵°✵')
-             print(f'LO SIENTO {users["name2"]} HAS PERDIDO ٩꒰´·⌢•｀꒱۶⁼³₌₃')
+             print(f'✵°✵.｡.✰ FELICIDADES {users["nickname"]} GANASTE !! ✰.｡.✵°✵')
+             print(f'LO SIENTO {users["nickname2"]} HAS PERDIDO ٩꒰´·⌢•｀꒱۶⁼³₌₃')
              mdls.pausar_pantalla()
              isActive=False
              contador['rondasJ1']=0
              contador['rondasJ2']=0
             else:
-             print(f'✵°✵.｡.✰ FELICIDADES {users["name2"]} GANASTE !! ✰.｡.✵°✵')
-             print(f'LO SIENTO {users["name"]} HAS PERDIDO ٩꒰´·⌢•｀꒱۶⁼³₌₃')
+             print(f'✵°✵.｡.✰ FELICIDADES {users["nickname2"]} GANASTE !! ✰.｡.✵°✵')
+             print(f'LO SIENTO {users["nickname"]} HAS PERDIDO ٩꒰´·⌢•｀꒱۶⁼³₌₃')
              mdls.pausar_pantalla()
              return(jugarJug)
              isActive=False
