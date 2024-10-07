@@ -15,11 +15,12 @@ if __name__=='__main__':
             opcion=int(input('Escriba aqui la opcion: '))
             match opcion:
                 case 1:
-                    modulo.jugarPc(marcador)
+                   #a modulo.jugarPc(marcador)
                     modulo.addData(marcador)
                 case 2:
-                    modulo.jugarJug()
-                    modulo.addData()
+                    modulo.jugarJug(marcador)
+                    modulo.addData(marcador
+                                   )
                 case 3:
                     print(modulo.reglas)
                     input('Enter para volver al menú.....')

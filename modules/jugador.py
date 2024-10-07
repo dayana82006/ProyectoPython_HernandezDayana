@@ -2,10 +2,10 @@ import modules as mdls
 import os
 import sys
 
-def jugarJug():
+def jugarJug(marcador):
     contador={
-        'PuntosJ1':0,
-        'PuntosJ2':0,
+        'puntosJ1':0,
+        'puntosJ2':0,
         'rondasJ1':0,
         'rondasJ2':0,
         'resultados':0
@@ -19,6 +19,7 @@ def jugarJug():
             'name2':user2
             }
     
+    
     while isActive:
         opciones=['piedra', 'papel', 'tijera']
         if contador['rondasJ1']<3 and contador['rondasJ2']<3:
@@ -28,44 +29,52 @@ def jugarJug():
             if opcJ1=='piedra' and opcJ2=='tijera':
                 print(f'Va ganando {user}')
                 contador['rondasJ1']+=1
-                contador['PuntosJ1']+=2
-                print(f'MARCADOR {contador.get('PuntosJ2')} - {contador.get('PuntosJ1')}')
+                print(f'MARCADOR {contador["rondasJ2"]} - {contador["rondasJ1"]}')
             elif opcJ1=='papel' and opcJ2=='piedra':
                 print(f'{user} Ha ganado esta ronda')
-                contador['PuntosJ1']+=2
                 contador['rondasJ1']+=1
-                print(f'MARCADOR {contador.get('PuntosJ2')} - {contador.get('PuntosJ1')}')
-            elif opcJ1=='tijera' and opcJ2=='papel':
-                print(f'Va ganando {user}')
+                print(f'MARCADOR {contador["rondasJ2"]} - {contador["rondasJ1"]}')
+            elif opcJ1=='tijera' and opcJ2=='':
+                print(f'{user} Ha ganado esta ronda')
                 contador['rondasJ1']+=1
-                contador['PuntosJ1']+=2
-                print(f'MARCADOR {contador.get('PuntosJ2')} - {contador.get('PuntosJ1')}')
+                print(f'MARCADOR {contador["rondasJ2"]} - {contador["rondasJ1"]}')
             elif opcJ2=='piedra' and opcJ1=='tijera':
-                print(f'{user2} Ha ganadoe sta ronda')
-                contador['PuntosJ2']+=2
+                print(f'{user2} Ha ganade esta ronda') 
                 contador['rondasJ2']+=1
-                print(f'MARCADOR {contador.get('PuntosJ2')} - {contador.get('PuntosJ2')}')
+                print(f'MARCADOR {contador.get("rondasJ2")} - {contador["rondasJ1"]}')
             elif opcJ2=='papel' and opcJ1=='piedra':
-                
+                print(f'{user2} Ha ganado esta ronda') 
+                contador['rondasJ2']+=1
+                print(f'MARCADOR {contador.get("rondasJ2")} - {contador["rondasJ1"]}')
             elif opcJ2=='tijera' and opcJ1=='papel':
-               
+               print(f'{user2} Ha ganado esta ronda') 
+               contador['rondasJ2']+=1
+               print(f'MARCADOR {contador.get("rondasJ2")} - {contador["rondasJ1"]}')
             elif opcJ1==opcJ2:
-                 
+                print('Esto es un empate, re reinicia marcador') 
+                contador["rondasJ2"]=0
+                contador["rondasJ1"]=0
+
+                print(f'MARCADOR {contador.get("rondasJ2")} - {contador["rondasJ1"]}')
             else:
                 print('digite un dato correcto')
                 input('Presione cualquier tecla para volver a intentar...')
         else:
             print('La partida ha finalizado')
-            if contador['rondasGU'] > contador['rondasGM']:
-             print(f'✵°✵.｡.✰ FELICIDADES {users.get('name')} GANASTE !! ✰.｡.✵°✵')
+            if contador['rondasJ1'] > contador['rondasJ2']:
+             print(f'✵°✵.｡.✰ FELICIDADES {users["name"]} GANASTE !! ✰.｡.✵°✵')
+             print(f'LO SIENTO {users["name2"]} HAS PERDIDO ٩꒰´·⌢•｀꒱۶⁼³₌₃')
              mdls.pausar_pantalla()
              isActive=False
-             contador['rondasGU']=0
-             contador['rondasGM']=0
+             contador['rondasJ1']=0
+             contador['rondasJ2']=0
             else:
-             print(f'LO SIENTO {users.get('name')} HAS PERDIDO ٩꒰´·⌢•｀꒱۶⁼³₌₃')
+             print(f'✵°✵.｡.✰ FELICIDADES {users["name2"]} GANASTE !! ✰.｡.✵°✵')
+             print(f'LO SIENTO {users["name"]} HAS PERDIDO ٩꒰´·⌢•｀꒱۶⁼³₌₃')
+             mdls.pausar_pantalla()
+             return(jugarJug)
              isActive=False
-             contador['rondasGU']=0
-             contador['rondasGM']=0
+             contador['rondasJ1']=0
+             contador['rondasJ2']=0
             
        

@@ -8,6 +8,6 @@ def borrar_pantalla():
         os.system('cls')
 def pausar_pantalla():
     if sys.platform=="linux" or sys.platform=="darwin":
-        x= input("presiona una tecla para continuar")
+        x= input("presiona una tecla para continuar....")
     else:
         os.system("pause")

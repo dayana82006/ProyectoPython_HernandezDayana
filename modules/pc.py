@@ -1,4 +1,4 @@
-import os 
+"""import os 
 import sys
 import modules as mdls
 import random
@@ -15,8 +15,9 @@ def jugarPc(ptos:dict):
             'resultados':0
          }
     }
+    #ptos.get{"indice"}.get{"users"}
     ptos.update({int(len(ptos))+1:contador}) 
-    print(f'El usuario {(contador['users']['user'])} se ha registrado satisfactoriamente') 
+    print(f'El usuario {user} se ha registrado satisfactoriamente') 
     print('USTED JUGARA CONTRA EL PC')
     while isActive:
         maquina=['piedra', 'papel', 'tijera']
@@ -68,5 +69,4 @@ def jugarPc(ptos:dict):
              isActive=False
              (contador['puntos']['rondasGU'])=0
              (contador['puntos']['rondasGM'])=0
-            
-       
+"""
