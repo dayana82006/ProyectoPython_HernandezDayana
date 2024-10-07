@@ -19,7 +19,8 @@ contador={
 def jugarPc():
 
     isActive=True
-    user=str(input('🃟 Registre su nombre de usuario: '))
+    user=str(input('🃟 Registre su nombre de usuario1: '))
+    user2=str(input('🃟 Registre su nombre de usuario2: '))
     users={
             'name':user
             }
