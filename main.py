@@ -2,7 +2,7 @@ import os
 import sys
 import modules as modulo
 from modules.jsonM import updateData, saveData
-from modules.pc import jugarPc
+
 
 if __name__ == '__main__':
     isActive = True
@@ -15,7 +15,7 @@ if __name__ == '__main__':
             match opcion:
                 case 1:
                     datos = updateData()
-                    datos_actualizados = jugarPc(datos)
+                    datos_actualizados = modulo.jugarPc(datos)
                     saveData(datos_actualizados)
                 case 2:
                     datos = updateData()
