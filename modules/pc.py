@@ -21,7 +21,8 @@ def jugarPc(ptos: dict):
                 'resultados': 0,
                 'escudoUs': False,
                 'escudoPc': False,
-                'victoriasConsecutivas': 0
+                'victoriasConsecutivas': 0,
+                'victoriasConsecutivasPc': 0
             }
         }
         ptos[str(len(ptos) + 1)] = contador

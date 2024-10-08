@@ -90,11 +90,9 @@ def jugarJug(ptos: dict):
         print(f'LO SIENTO {contadorJvJ["users"]["nickname"]} HAS PERDIDO ٩꒰´·⌢•｀꒱۶⁼³₌₃')
 
     mdls.pausar_pantalla()
-    
-    # Reset the round counters for the next game
+
     contadorJvJ['puntos']['rondasJ1'] = 0
     contadorJvJ['puntos']['rondasJ2'] = 0
 
-    # Save the updated data
     saveData(ptos)
     return ptos
