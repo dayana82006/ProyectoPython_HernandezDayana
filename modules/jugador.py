@@ -42,7 +42,7 @@ def jugarJug(marcador):
                     print(f'{user} ha obtenido un escudo por dos victorias consecutivas!')
                 print(f'Va ganando {user}')
                 contador['rondasJ1']+=1
-                print(f'MARCADOR {contador["rondasJ2"]} - {contador["rondasJ1"]}')
+                print(f'MARCADOR {contador["rondasJ1"]} - {contador["rondasJ2"]}')
             elif opcJ2=='piedra' and opcJ1=='tijera' or opcJ2=='papel' and opcJ1=='piedra' or opcJ2=='tijera' and opcJ1=='papel':
                 rondasGCJ2 += 1
                 rondasGCJ1 = 0

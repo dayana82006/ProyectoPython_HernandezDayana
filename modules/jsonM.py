@@ -1,21 +1,14 @@
 import json
 import os
-DATA='data/tablaPuntos.json'
+def saveData(data, filename='data/puntajes.json'):
+    with open(filename, 'w') as f:
+        json.dump(data, f, indent=4)
 
-def newFile(fileName):
-    with open(DATA,"w") as wf:
-        json.dump(fileName, wf , indent=4)
-        
-def readFile():
-    with open(DATA, "r") as rf:
-        return json.load(rf)
-    
-def addData(diccName):
-    with open(DATA, "w") as frw:
-        json.dump(diccName, frw, indent=4)
-        
-def checkFile(diccName):
-    if(os.path.isfile(DATA)):
-        pass
+def updateData(filename='data/puntajes.json'):
+    if not os.path.exists(filename):
+        with open(filename, 'w') as f:
+            json.dump({}, f)
+        return {}
     else:
-        newFile(diccName)
+        with open(filename, 'r') as f:
+            return json.load(f)
