@@ -14,6 +14,7 @@ if __name__ == '__main__':
         
             match opcion:
                 case 1:
+                    
                     datos = updateData()
                     datos_actualizados = modulo.jugarPc(datos)
                     saveData(datos_actualizados)

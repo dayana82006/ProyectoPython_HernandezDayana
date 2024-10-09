@@ -1,7 +1,6 @@
 import os
 import sys
 import random
-
 import modules as mdls
 from modules.jsonM import saveData, updateData
 
@@ -34,14 +33,18 @@ def jugarPc(ptos: dict):
     print('USTED JUGARA CONTRA EL PC')
     
     while isActive:
+        #tenemos las opciones
         opciones=['piedra', 'papel', 'tijera']
+        #comprobamos si las rondas ganadas por cada uno son menor a 3
         if (contador['puntos']['rondasGM'])<3 and (contador['puntos']['rondasGU'])<3:
             print(mdls.opcPC)
+            #le pedimos al user nos de la opcion que desea
             opcUs=(input('ELije sabiamente: ')).lower()
+            #y comprobamos que si escribe un dato random, no deje pasar al siguiente paso
             if opcUs not in opciones:
                 print('Digite un dato correcto')
             opcionPc=random.choice(opciones)
-            
+            #empezamos validando las posibles opciones donde el user gana
             if (opcUs=='piedra' and opcionPc=='tijera') or (opcUs=='papel' and opcionPc=='piedra') or (opcUs=='tijera' and opcionPc=='papel'):
                 (contador['puntos']['rondasGU'])+=1
                 (contador['puntos']['victoriasConsecutivas'])=+1
@@ -50,6 +53,7 @@ def jugarPc(ptos: dict):
                     (contador['puntos']['escudoUs'])=True
                     print(f'{user} ha ganado un escudo')
                 print(f"MARCADOR {contador['puntos']['rondasGM']} - {contador['puntos']['rondasGU']}")
+            #validamos las opciones donde la maquina puede ganar    
             elif opcionPc=='papel' and opcUs=='piedra' or opcionPc=='piedra' and opcUs=='tijera' or opcionPc=='tijera' and opcUs=='papel':
                 print('No ganaste esta partida')
                 (contador['puntos']['rondasGM'])+=1
