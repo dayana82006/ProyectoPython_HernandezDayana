@@ -1,28 +1,15 @@
 {
     "1": {
-        "users": "kkk",
+        "users": "ada",
         "puntos": {
-            "PuntosPc": 2,
-            "PuntosUs": 0,
+            "PuntosPc": 0,
+            "PuntosUs": 2,
             "rondasGU": 0,
             "rondasGM": 0,
             "resultados": 0,
             "escudoUs": false,
             "escudoPc": false,
-            "victoriasConsecutivas": 0
-        }
-    },
-    "2": {
-        "users": "kk",
-        "puntos": {
-            "PuntosPc": 0,
-            "PuntosUs": 0,
-            "rondasGU": 2,
-            "rondasGM": 0,
-            "resultados": 0,
-            "escudoUs": false,
-            "escudoPc": false,
-            "victoriasConsecutivas": 0,
+            "victoriasConsecutivas": 1,
             "victoriasConsecutivasPc": 0
         }
     }

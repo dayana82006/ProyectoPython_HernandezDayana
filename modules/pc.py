@@ -34,43 +34,42 @@ def jugarPc(ptos: dict):
     print('USTED JUGARA CONTRA EL PC')
     
     while isActive:
-       while isActive:
-        maquina=['piedra', 'papel', 'tijera']
+        opciones=['piedra', 'papel', 'tijera']
         if (contador['puntos']['rondasGM'])<3 and (contador['puntos']['rondasGU'])<3:
             print(mdls.opcPC)
             opcUs=(input('ELije sabiamente: ')).lower()
-            opcionPc=random.choice(maquina)
-            if opcUs=='piedra' and opcionPc=='tijera':
-                print('Eso es, Has ganado')
-                (contador['puntos']['rondasGM'])+=1
-                print(f"MARCADOR {contador['puntos']['rondasGM']} - {contador['puntos']['rondasGU']}")
-
-            elif opcUs=='papel' and opcionPc=='piedra':
-                print('Bien Has ganado')
+            if opcUs not in opciones:
+                print('Digite un dato correcto')
+            opcionPc=random.choice(opciones)
+            
+            if (opcUs=='piedra' and opcionPc=='tijera') or (opcUs=='papel' and opcionPc=='piedra') or (opcUs=='tijera' and opcionPc=='papel'):
                 (contador['puntos']['rondasGU'])+=1
+                (contador['puntos']['victoriasConsecutivas'])=+1
+                (contador['puntos']['victoriasConsecutivasPc'])=0
+                if (contador['puntos']['victoriasConsecutivas'])==2 and not (contador['puntos']['escudoUs']):
+                    (contador['puntos']['escudoUs'])=True
+                    print(f'{user} ha ganado un escudo')
                 print(f"MARCADOR {contador['puntos']['rondasGM']} - {contador['puntos']['rondasGU']}")
-            elif opcUs=='tijera' and opcionPc=='papel':
-                print('Ey!, Muy bien Has ganado')
-                (contador['puntos']['rondasGU'])+=1
-                print(f"MARCADOR {contador['puntos']['rondasGM']} - {contador['puntos']['rondasGU']}")
-            elif opcionPc=='piedra' and opcUs=='tijera':
-                print('Lo siento, no ganaste esta partida')
+            elif opcionPc=='papel' and opcUs=='piedra' or opcionPc=='piedra' and opcUs=='tijera' or opcionPc=='tijera' and opcUs=='papel':
+                print('No ganaste esta partida')
                 (contador['puntos']['rondasGM'])+=1
+                (contador['puntos']['victoriasConsecutivasPc'])+=1
+                (contador['puntos']['victoriasConsecutivas'])=0
+                if (contador['puntos']['victoriasConsecutivasPc'])==2 and not (contador['puntos']['escudoPc']):
+                    (contador['puntos']['escudoPc'])=True
+                    print('La IA tiene un escudo')
                 print(f"MARCADOR {contador['puntos']['rondasGM']} - {contador['puntos']['rondasGU']}")
-            elif opcionPc=='papel' and opcUs=='piedra':
-                print('Que triste, no ganaste esta partida')
-                (contador['puntos']['rondasGM'])+=1
-                print(f"MARCADOR {contador['puntos']['rondasGM']} - {contador['puntos']['rondasGU']}")
-            elif opcionPc=='tijera' and opcUs=='papel':
-                print('Bueno, no ganaste esta partida')
-                (contador['puntos']['rondasGM'])+=1
-                print(f"MARCADOR {contador['puntos']['rondasGM']} - {contador['puntos']['rondasGU']}")
+                if contador['puntos']['escudoUs']:
+                    print(f'{user} ha usado su escudo y se salva de la derrota!')
+                    contador['puntos']['escudoUs'] = False
+                else:
+                    print('Pc Ha ganado esta ronda')
+                    contador['puntos']['rondasGM'] += 1
             elif opcUs==opcionPc:
-                print('Es un empate... Aun puedes ganar!')   
-                print(f"MARCADOR {contador['puntos']['rondasGM']} - {contador['puntos']['rondasGU']}")
-            else:
-                print('digite un dato correcto')
-                input('Presione cualquier tecla para volver a intentar...')
+                print('Esto es un empate, se han acabado las rachas')
+                contador['puntos']['victoriasConsecutivas'] = 0
+                contador['puntos']['victoriasConsecutivasPc'] = 0     
+            
         else:
             print('La partida ha finalizado')
             if contador['puntos']['rondasGU'] > contador['puntos']['rondasGM']:

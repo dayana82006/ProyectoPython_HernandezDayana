@@ -7,7 +7,7 @@ def jugarJug(ptos: dict):
     nombreC2 = input('🃟 Ingrese nombre completo del jugador 2: ')
     user2 = input('🃟 Registre su nombre de usuario2: ')
 
-    userIdx = next((i for i, data in ptos.items() if data['users']['nickname'] == user), None)
+    userIdx = next((i for i, data in ptos.items() if data['users'] == user), None)
     
     if userIdx is None:
         contadorJvJ = {

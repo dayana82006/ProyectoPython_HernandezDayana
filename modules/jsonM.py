@@ -12,3 +12,4 @@ def updateData(filename='data/puntajes.json'):
     else:
         with open(filename, 'r') as f:
             return json.load(f)
+        
