@@ -38,6 +38,7 @@ def jugarJug(ptos: dict):
     if contadorJvJ['users']['nickname'] == contadorJvJ['users']['nickname2']:
         print('Este usuario no está disponible')
         input('Presione enter para volver al menú')
+        mdls.borrar_pantalla()
         return ptos
 
     while contadorJvJ['puntos']['rondasJ1'] < 3 and contadorJvJ['puntos']['rondasJ2'] < 3:
@@ -47,6 +48,7 @@ def jugarJug(ptos: dict):
 
         if opcJ1 not in ['piedra', 'papel', 'tijera'] or opcJ2 not in ['piedra', 'papel', 'tijera']:
             print('Digite un dato correcto')
+            mdls.borrar_pantalla()
             input('Presione cualquier tecla para volver a intentar...')
             continue
 
@@ -76,16 +78,16 @@ def jugarJug(ptos: dict):
             contadorJvJ['puntos']['rondasGCJ2'] = 0
 
         print(f'MARCADOR {contadorJvJ["puntos"]["rondasJ1"]} - {contadorJvJ["puntos"]["rondasJ2"]}')
-        print(f'Victorias consecutivas de {user}: {contadorJvJ["puntos"]["rondasGCJ1"]}')
-        print(f'Victorias consecutivas de {user2}: {contadorJvJ["puntos"]["rondasGCJ2"]}')
         print(f'Escudo de {user}: {"Activo" if contadorJvJ["puntos"]["escudoJ1"] else "Inactivo"}')
         print(f'Escudo de {user2}: {"Activo" if contadorJvJ["puntos"]["escudoJ2"] else "Inactivo"}')
 
     print('La partida ha finalizado')
     if contadorJvJ['puntos']['rondasJ1'] > contadorJvJ['puntos']['rondasJ2']:
+        mdls.borrar_pantalla()
         print(f'✵°✵.｡.✰ FELICIDADES {contadorJvJ["users"]["nickname"]} GANASTE !! ✰.｡.✵°✵')
         print(f'LO SIENTO {contadorJvJ["users"]["nickname2"]} HAS PERDIDO ٩꒰´·⌢•｀꒱۶⁼³₌₃')
     else:
+        mdls.borrar_pantalla()
         print(f'✵°✵.｡.✰ FELICIDADES {contadorJvJ["users"]["nickname2"]} GANASTE !! ✰.｡.✵°✵')
         print(f'LO SIENTO {contadorJvJ["users"]["nickname"]} HAS PERDIDO ٩꒰´·⌢•｀꒱۶⁼³₌₃')
 
