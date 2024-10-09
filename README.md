@@ -43,5 +43,9 @@ Mi manejo es que en cada ronda ganada se le suma 1 al contador que es el que se 
 Manejo un modulo init donde cargo todos los modulos y es mucho mas comodo al momento de llamar las funciones en el main, ya que no me toca por separado cada uno 
 ![alt text](image-9.png)
 
+![alt text](image-11.png)
+
+En jugadores me valida los nickname que no sean iguales para poder guardar bien los datos 
+
 Puse un manejo de error donde me deberia validar cualquier tipo de error que el usuario intente
 ![alt text](image-10.png)
